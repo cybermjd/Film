@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinefy | Premium Komediya</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Naviqasiya Menyu */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.9) !important;
+            padding: 15px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        /* Aktiv Sarı Düymə stili */
+        .nav-link.active-yellow {
+            background-color: #f1c40f !important;
+            color: black !important;
+            border-radius: 8px;
+            padding: 10px 20px !important;
+            font-weight: bold;
+        }
+
+        .nav-link {
+            color: #ccc !important;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #f1c40f !important;
+        }
+
+        /* Başlıq Dizaynı */
+        .category-title {
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #f1c40f;
+            margin-bottom: 5px;
+        }
+
+        .underline {
+            width: 60px;
+            height: 4px;
+            background: #f1c40f;
+            border-radius: 2px;
+            margin-bottom: 40px;
+        }
+
+        /* Kart Dizaynı */
+        .movie-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 450px;
+            /* Bütün kartların eyni boyda olması üçün */
+        }
+
+        .movie-item:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+
+        .movie-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.95));
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .movie-item:hover .movie-overlay {
+            opacity: 1;
+        }
+
+        .movie-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .movie-meta {
+            font-size: 0.85rem;
+            color: #f1c40f;
+            margin-bottom: 10px;
+        }
+
+        .play-btn {
+            background: #ffffff;
+            color: #000;
+            border: none;
+            padding: 8px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .play-btn:hover {
+            background: #f1c40f;
+        }
+
+        /* Footer Stiləri */
+        .footer {
+            background-color: #0a0a0a;
+            border-top: 1px solid #222;
+            padding: 40px 0 20px 0;
+        }
+
+        .footer-brand {
+            color: #f1c40f;
+            text-decoration: none;
+        }
+
+        .footer-nav a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .footer-nav a:hover {
+            color: #f1c40f;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            background: #1a1a1a;
+            color: #f1c40f;
+            text-align: center;
+            border-radius: 50%;
+            margin-left: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #f1c40f;
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1a1a1a;
+            padding-top: 20px;
+            text-align: center;
+            color: #555;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-warning fw-bold fs-3" href="#">Cinefy</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Ana səhifə</a></li>
+                    <li class="nav-item"><a class="nav-link" href="seryallar.html">Seriallar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="qorxu.html">Qorxu Filmleri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="senedli.html">Sənədli Filmlər</a></li>
+                    <li class="nav-item"><a class="nav-link active-yellow" href="komediya.html">Komediya</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <h2 class="category-title">Komediya Dünyası</h2>
+        <div class="underline"></div>
+
+        <div class="row g-4">
+            <div class="col-6 col-md-3">
+                <div class="movie-item">
+                    <img src="img/komediya/the dictator.png" alt="Diktator">
+                    <div class="movie-overlay">
+                        <p class="movie-meta">2012 • 1s 39dk</p>
+                        <h5 class="movie-name">Diktator</h5>
+                        <div class="mt-3 d-flex justify-content-between align-items-center">
+                            <span class="badge border border-warning text-warning">HD</span>
+                            <div class="play-btn">▶</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="movie-item">
+                    <img src="img/komediya/the mask.png" alt="Maska">
+                    <div class="movie-overlay">
+                        <p class="movie-meta">1994 • 1s 41dk</p>
+                        <h5 class="movie-name">Maska</h5>
+                        <div class="mt-3 d-flex justify-content-between align-items-center">
+                            <span class="badge border border-warning text-warning">4K</span>
+                            <div class="play-btn">▶</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="movie-item">
+                    <img src="img/komediya/shrek.png" alt="Shrek">
+                    <div class="movie-overlay">
+                        <p class="movie-meta">2001 • 1s 29dk</p>
+                        <h5 class="movie-name">Shrek</h5>
+                        <div class="mt-3 d-flex justify-content-between align-items-center">
+                            <span class="badge border border-warning text-warning">HD</span>
+                            <div class="play-btn">▶</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="movie-item">
+                    <img src="img/komediya/1+1.png" alt="1+1">
+                    <div class="movie-overlay">
+                        <p class="movie-meta">2011 • 1s 52dk</p>
+                        <h5 class="movie-name">1+1 (Can Dostum)</h5>
+                        <div class="mt-3 d-flex justify-content-between align-items-center">
+                            <span class="badge border border-warning text-warning">HD</span>
+                            <div class="play-btn">▶</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="movie-item">
+                    <img src="img/komediya/central intelligence.png" alt="central intellegence">
+                    <div class="movie-overlay">
+                        <p class="movie-meta">2016 • 1s 56dk</p>
+                        <h5 class="movie-name">Bir yarım casus</h5>
+                        <div class="mt-3 d-flex justify-content-between align-items-center">
+                            <span class="badge border border-warning text-warning">HD</span>
+                            <div class="play-btn">▶</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="movie-item">
+                    <img src="img/komediya/evde tek.png" alt="evde tek.png">
+                    <div class="movie-overlay">
+                        <p class="movie-meta">1990 • 1s 43dk</p>
+                        <h5 class="movie-name">Evde tek</h5>
+                        <div class="mt-3 d-flex justify-content-between align-items-center">
+                            <span class="badge border border-warning text-warning">HD</span>
+                            <div class="play-btn">▶</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="movie-item">
+                    <img src="img/komediya/hangover.png" alt="hangover.png">
+                    <div class="movie-overlay">
+                        <p class="movie-meta">2009 • 1s 40dk</p>
+                        <h5 class="movie-name">Hangover</h5>
+                        <div class="mt-3 d-flex justify-content-between align-items-center">
+                            <span class="badge border border-warning text-warning">HD</span>
+                            <div class="play-btn">▶</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="movie-item">
+                    <img src="img/komediya/hot fuzz.png" alt="hot fuzz.png">
+                    <div class="movie-overlay">
+                        <p class="movie-meta">2007 • 2s 1dk</p>
+                        <h5 class="movie-name">Hot Fuzz</h5>
+                        <div class="mt-3 d-flex justify-content-between align-items-center">
+                            <span class="badge border border-warning text-warning">HD</span>
+                            <div class="play-btn">▶</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-5">
+        <div class="container">
+            <div class="row gy-4 align-items-center">
+                <div class="col-md-4 text-center text-md-start">
+                    <a class="footer-brand fw-bold fs-3" href="#">Cinefy</a>
+                    <p class="text-muted small mt-2">Ən yeni komediya, serial və sənədli filmlərin tək ünvanı. Cinefy
+                        ilə gülüşü hiss et.</p>
+                </div>
+
+                <div class="col-md-4 text-center">
+                    <div class="footer-nav">
+                        <a href="index.html">Ana Səhifə</a>
+                        <a href="seryallar.html">Seriallar</a>
+                        <a href="qorxu.html">Qorxu</a>
+                        <a href="senedli.html">Senedli</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 text-center text-md-end">
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/elmaddin_akhmedzadeh/" title="Instagram">IG</a>
+                        <a href="https://www.facebook.com/elmaddin.akhmedzadeh" title="Facebook">FB</a>
+                        <a href="https://www.linkedin.com/in/elmaddin-ahmadzada-08a0b1100/?originalSubdomain=az" title="Linkedin">In</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom mt-4">
+                <p>© 2026 BY MERS | Comedy Lab</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinefy - Qorxu Filmləri</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --horror-red: #8b0000;
+            --dark-void: #050505;
+            --blood-glow: rgba(139, 0, 0, 0.5);
+        }
+
+        body {
+            background-color: var(--dark-void);
+            color: #ccc;
+            font-family: 'Cinzel', serif;
+            /* zQorxu filmi stilində şrift */
+        }
+
+        /* Naviqasiya */
+        .navbar {
+            background: black !important;
+            border-bottom: 2px solid var(--horror-red);
+            box-shadow: 0 0 15px var(--blood-glow);
+        }
+
+        /* Horror Header */
+        .horror-header {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), var(--dark-void)),
+                url('https://images.unsplash.com/photo-1505635330303-319530294830?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-shadow: 0 0 10px var(--horror-red);
+        }
+
+        .horror-title {
+            color: var(--horror-red);
+            font-weight: bold;
+            letter-spacing: 5px;
+            animation: flicker 3s infinite;
+        }
+
+        /* Film Kartları */
+        .horror-card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 0;
+            /* Daha kəskin künclər */
+            transition: 0.5s;
+            overflow: hidden;
+        }
+
+        .horror-card:hover {
+            border-color: var(--horror-red);
+            box-shadow: 0 0 20px var(--blood-glow);
+            transform: scale(1.02);
+            filter: grayscale(0%);
+        }
+
+        .horror-img {
+            filter: grayscale(40%);
+            transition: 0.5s;
+        }
+
+        .horror-card:hover .horror-img {
+            filter: grayscale(0%) contrast(1.2);
+        }
+
+        .scare-factor {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--horror-red);
+            color: white;
+            padding: 3px 8px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+
+        /* Titrəmə animasiyası */
+        @keyframes flicker {
+
+            0%,
+            19%,
+            21%,
+            23%,
+            25%,
+            54%,
+            56%,
+            100% {
+                opacity: 1;
+            }
+
+            20%,
+            22%,
+            24%,
+            55% {
+                opacity: 0.4;
+            }
+        }
+
+        .btn-horror {
+            background-color: transparent;
+            color: var(--horror-red);
+            border: 1px solid var(--horror-red);
+            border-radius: 0;
+            transition: 0.3s;
+        }
+
+        .btn-horror:hover {
+            background-color: var(--horror-red);
+            color: white;
+            box-shadow: 0 0 10px var(--horror-red);
+        }
+
+        /* Naviqasiya Menyu */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.9) !important;
+            padding: 15px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        /* Sənin istədiyin Qırmızı Düymə stili */
+        .nav-link.active-red {
+            background-color: #e50914 !important;
+            color: white !important;
+            border-radius: 8px;
+            padding: 10px 20px !important;
+            font-weight: bold;
+        }
+
+        .nav-link {
+            color: #ccc !important;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #e50914 !important;
+        }
+
+        .navbar-toggler {
+            border: 1px solid #444 !important;
+        }
+
+         /* Footer Stiləri */
+        .footer {
+            background-color: #0a0a0a;
+            border-top: 1px solid #222;
+            padding: 40px 0 20px 0;
+        }
+
+        .footer-brand {
+            color: #e50914;
+            text-decoration: none;
+        }
+
+        .footer-nav a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .footer-nav a:hover {
+            color: #e50914;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            background: #1a1a1a;
+            color: #e50914;
+            text-align: center;
+            border-radius: 50%;
+            margin-left: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #e50914;
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1a1a1a;
+            padding-top: 20px;
+            text-align: center;
+            color: #555;
+            font-size: 0.8rem;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-danger fw-bold fs-3" href="#">Cinefy</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Ana səhifə</a></li>
+                    <li class="nav-item"><a class="nav-link" href="seryallar.html">Seriallar</a></li>
+                    <li class="nav-item"><a class="nav-link active-red" href="qorxu.html">Qorxu Filmleri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="senedli.html">Sənədli Filmlər</a></li>
+                    <li class="nav-item"><a class="nav-link" href="komediya.html">Komediya</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="horror-header text-center">
+        <div class="container">
+            <h1 class="display-1 horror-title">QORXU GECƏSİ</h1>
+            <p class="lead text-light">Qaranlıqdan qorxmursunuzsa, izləməyə başlayın...</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+
+            <div class="col">
+                <div class="card horror-card h-100 position-relative" style="border-radius: 10px;">
+                    <img src="img/qorxu/seytan.png" class="card-img-top horror-img" alt="Horror" style="height: 400px;">
+                    <span class="scare-factor"><i class="fas fa-skull"></i> Çox Qorxulu</span>
+                    <div class="card-body">
+                        <h5 class="text-light fw-bold">Şeytan</h5>
+                        <p class="small text-secondary">Paranormal | 1973</p>
+                        <button class="btn btn-horror w-100" style="border-radius: 10px;">İzlə</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card horror-card h-100 position-relative" style="border-radius: 10px;">
+                    <img src="img/qorxu/the shining.png" class="card-img-top horror-img" alt="Horror" style="height: 400px;">
+                    <span class="scare-factor"><i class="fas fa-skull"></i> PSİXOLOJİ</span>
+                    <div class="card-body">
+                        <h5 class="text-light fw-bold">Parlaqlıq</h5>
+                        <p class="small text-secondary">Psixoloji Qorxu | 1980</p>
+                        <button class="btn btn-horror w-100" style="border-radius: 10px;">İzlə</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card horror-card h-100 position-relative" style="border-radius: 10px;">
+                    <img src="img/qorxu/halloween.png" class="card-img-top horror-img" alt="Horror" style="height: 400px;">
+                    <span class="scare-factor"><i class="fas fa-skull"></i> Çox Qorxulu</span>
+                    <div class="card-body">
+                        <h5 class="text-light fw-bold">Hallowen</h5>
+                        <p class="small text-secondary">Slasher | 1978</p>
+                        <button class="btn btn-horror w-100" style="border-radius: 10px;">İzlə</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card horror-card h-100 position-relative" style="border-radius: 10px;">
+                    <img src="img/qorxu/the conjuring.png" class="card-img-top horror-img" alt="Horror" style="height: 400px;">
+                    <span class="scare-factor"><i class="fas fa-skull"></i> Çox Qorxulu</span>
+                    <div class="card-body">
+                        <h5 class="text-light fw-bold">Lənət</h5>
+                        <p class="small text-secondary">Kabus | 2013</p>
+                        <button class="btn btn-horror w-100" style="border-radius: 10px;">İzlə</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card horror-card h-100 position-relative" style="border-radius: 10px;">
+                    <img src="img/qorxu/ruhlar bolgesi.png" class="card-img-top horror-img" alt="Horror" style="height: 400px;">
+                    <span class="scare-factor"><i class="fas fa-skull"></i> Çox Qorxulu</span>
+                    <div class="card-body">
+                        <h5 class="text-light fw-bold">Ruhlar Bölgəsi</h5>
+                        <p class="small text-secondary">Paranormal, Triller | 2010</p>
+                        <button class="btn btn-horror w-100" style="border-radius: 10px;">İzlə</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card horror-card h-100 position-relative" style="border-radius: 10px;">
+                    <img src="img/qorxu/misar.png" class="card-img-top horror-img" alt="Horror" style="height: 400px;">
+                    <span class="scare-factor"><i class="fas fa-skull"></i> 18+</span>
+                    <div class="card-body">
+                        <h5 class="text-light fw-bold">Mişar</h5>
+                        <p class="small text-secondary">Triller, Qorxu | 2004</p>
+                        <button class="btn btn-horror w-100" style="border-radius: 10px;">İzlə</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card horror-card h-100 position-relative" style="border-radius: 10px;">
+                    <img src="img/qorxu/sinister.png" class="card-img-top horror-img" alt="Horror" style="height: 400px;">
+                    <span class="scare-factor"><i class="fas fa-skull"></i> Gərgin</span>
+                    <div class="card-body">
+                        <h5 class="text-light fw-bold">Astra (Sinister)</h5>
+                        <p class="small text-secondary">Misteriya, Qorxu | 2012</p>
+                        <button class="btn btn-horror w-100" style="border-radius: 10px;">İzlə</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card horror-card h-100 position-relative" style="border-radius: 10px;">
+                    <img src="img/qorxu/dracula.png" class="card-img-top horror-img" alt="Horror" style="height: 400px;">
+                    <span class="scare-factor"><i class="fas fa-skull"></i> Klassik</span>
+                    <div class="card-body">
+                        <h5 class="text-light fw-bold">Drakula</h5>
+                        <p class="small text-secondary">Vampir, Dram | 1992</p>
+                        <button class="btn btn-horror w-100" style="border-radius: 10px;">İzlə</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer mt-5">
+        <div class="container">
+            <div class="row gy-4 align-items-center">
+                <div class="col-md-4 text-center text-md-start">
+                    <a class="footer-brand fw-bold fs-3" href="#">Cinefy</a>
+                    <p class="text-muted small mt-2">Ən yeni komediya, serial və sənədli filmlərin tək ünvanı. Cinefy
+                        ilə gülüşü hiss et.</p>
+                </div>
+
+                <div class="col-md-4 text-center">
+                    <div class="footer-nav">
+                        <a href="index.html">Ana Səhifə</a>
+                        <a href="seryallar.html">Seriallar</a>
+                        <a href="senedli.html">Senedli</a>
+                        <a href="komediya.html">Komediya</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 text-center text-md-end">
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/elmaddin_akhmedzadeh/" title="Instagram">IG</a>
+                        <a href="https://www.facebook.com/elmaddin.akhmedzadeh" title="Facebook">FB</a>
+                        <a href="https://www.linkedin.com/in/elmaddin-ahmadzada-08a0b1100/?originalSubdomain=az" title="Linkedin">In</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom mt-4">
+                <p>© 2026 BY MERS | Horror Lab</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

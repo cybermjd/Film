@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="">
+    <title>Cinefy - Ana Səhifə</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Naviqasiya Menyu */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.9) !important;
+            padding: 15px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        /* Sənin istədiyin Qırmızı Düymə stili */
+        .nav-link.active-red {
+            background-color: #e50914 !important;
+            color: white !important;
+            border-radius: 8px;
+            padding: 10px 20px !important;
+            font-weight: bold;
+        }
+
+        .nav-link {
+            color: #ccc !important;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #e50914 !important;
+        }
+
+        .navbar-toggler {
+            border: 1px solid #444 !important;
+        }
+
+        /* Ana Səhifə Banner (Hero) */
+        .hero-home {
+            height: 80vh;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)),
+                url('https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: bold;
+        }
+
+        .hero-text span {
+            color: #e50914;
+        }
+
+        /* Kartlar */
+        .movie-card {
+            background-color: #141414;
+            border: none;
+            border-radius: 10px;
+            transition: transform 0.4s;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .movie-card:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+
+        .movie-card img {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .movie-title {
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .section-title {
+            border-left: 4px solid #e50914;
+            padding-left: 15px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        footer {
+            border-top: 1px solid #222;
+            padding: 40px 0;
+            margin-top: 100px;
+        }
+
+         /* Footer Stiləri */
+        .footer {
+            background-color: #0a0a0a;
+            border-top: 1px solid #222;
+            padding: 40px 0 20px 0;
+        }
+
+        .footer-brand {
+            color: #e50914;
+            text-decoration: none;
+        }
+
+        .footer-nav a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .footer-nav a:hover {
+            color: #e50914;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            background: #1a1a1a;
+            color: #e50914;
+            text-align: center;
+            border-radius: 50%;
+            margin-left: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #e50914;
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1a1a1a;
+            padding-top: 20px;
+            text-align: center;
+            color: #555;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-danger fw-bold fs-3" href="#">Cinefy</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link active-red" href="index.html">Ana səhifə</a></li>
+                    <li class="nav-item"><a class="nav-link" href="seryallar.html">Seriallar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="qorxu.html">Qorxu Filmleri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="senedli.html">Sənədli Filmlər</a></li>
+                    <li class="nav-item"><a class="nav-link" href="komediya.html">Komediya</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-home">
+        <div class="container">
+            <div class="hero-text col-md-6">
+                <h1>Sərhədsiz <span>Kino</span> Dünyası</h1>
+                <p class="fs-5 text-secondary">Ən yeni filmlər, eksklüziv seriallar və maraqlı sənədli ekran əsərləri
+                    yalnız burada.</p>
+                <div class="mt-4">
+                    <a href="https://new.parkcinema.az/az" class="btn btn-danger btn-lg px-4 py-2 fw-bold">İzləməyə Başla</a>
+                    <a href="https://new.parkcinema.az/az" class="btn btn-outline-light btn-lg px-4 py-2 ms-2 fw-bold">Daha Ətraflı</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h3 class="section-title">İndi Populyar</h3>
+        <div class="row g-4">
+            <div class="col-6 col-md-3">
+                <div class="movie-card">
+                    <img src="img/ana sehife/inception.png" class="card-img-top" alt="Inception">
+                    <div class="movie-title">Inception</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="movie-card">
+                    <img src="img/ana sehife/the dark knight.png" alt="The Dark Knight">
+                    <div class="movie-title">The Dark Knight</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="movie-card">
+                    <img src="img/ana sehife/instellar.png" class="card-img-top" alt="Interstellar">
+                    <div class="movie-title">Interstellar</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="movie-card">
+                    <img src="img/ana sehife/the martin.png" class="card-img-top" alt="The Martian">
+                    <div class="movie-title">The Martian</div>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="section-title mt-5">Yeni Əlavə Olunanlar</h3>
+        <div class="row g-4">
+            <div class="col-6 col-md-3">
+                <div class="movie-card">
+                    <img src="img/ana sehife/avatar.png" class="card-img-top" alt="Avatar">
+                    <div class="movie-title">Avatar: The Way of Water</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="movie-card">
+                    <img src="img/ana sehife/mickey 17.png" class="card-img-top" alt="Avatar">
+                    <div class="movie-title">Mickey 17</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="movie-card">
+                    <img src="img/ana sehife/gladiator 2.png" class="card-img-top" alt="Avatar">
+                    <div class="movie-title">Gladiator II</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="movie-card">
+                    <img src="img/ana sehife/hail mary.png" class="card-img-top" alt="Avatar">
+                    <div class="movie-title">Project Hail Mary</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer mt-5">
+        <div class="container">
+            <div class="row gy-4 align-items-center">
+                <div class="col-md-4 text-center text-md-start">
+                    <a class="footer-brand fw-bold fs-3" href="#">Cinefy</a>
+                    <p class="text-muted small mt-2">Ən yeni komediya, serial və sənədli filmlərin tək ünvanı. Cinefy
+                        ilə gülüşü hiss et.</p>
+                </div>
+
+                <div class="col-md-4 text-center">
+                    <div class="footer-nav">
+                        <a href="seryallar.html">Seriallar</a>
+                        <a href="qorxu.html">Qorxu</a>
+                        <a href="senedli.html">Senedli</a>
+                        <a href="komediya.html">Komediya </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 text-center text-md-end">
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/elmaddin_akhmedzadeh/" title="Instagram">IG</a>
+                        <a href="https://www.facebook.com/elmaddin.akhmedzadeh" title="Facebook">FB</a>
+                        <a href="https://www.linkedin.com/in/elmaddin-ahmadzada-08a0b1100/?originalSubdomain=az" title="Linkedin">In</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom mt-4">
+                <p>© 2026 BY MERS | Bütün hüquqlar qorunur.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinefy - Sənədli Filmlər</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Ana fonu qara edirik */
+        body {
+            background-color: #000;
+        }
+
+        /* Kartların ana görünüşü */
+        .card {
+            background-color: #1a1a1a;
+            /* Tünd boz/qara fon */
+            border: 1px solid #333;
+            border-radius: 8px;
+            height: 100%;
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            border-color: #ffc107;
+        }
+
+        /* Şəklin ölçüsünü sabitləyirik */
+        .card-img-top {
+            height: 350px;
+            object-fit: cover;
+        }
+
+        /* Sarı Kateqoriya Etiketi */
+        .category-tag {
+            background-color: #ffc107;
+            color: #000;
+            padding: 2px 8px;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* Başlıq və Mətn rəngləri */
+        .card-title {
+            color: #ffc107;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .card-text {
+            color: #ccc;
+            font-size: 0.9rem;
+            min-height: 45px;
+            /* Mətnlər müxtəlif olsa da düymələr eyni səviyyədə qalsın */
+        }
+
+        /* Qırmızı "İndi İzlə" düyməsi */
+        .btn-watch {
+            background-color: #e50914;
+            /* Netflix qırmızısı */
+            color: white !important;
+            text-transform: none;
+            font-weight: bold;
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .btn-watch:hover {
+            background-color: #b20710;
+        }
+
+        /* Naviqasiya Menyu */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.9) !important;
+            padding: 15px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        /* Sənin istədiyin Qırmızı Düymə stili */
+        .nav-link.active-red {
+            background-color: #e50914 !important;
+            color: white !important;
+            border-radius: 8px;
+            padding: 10px 20px !important;
+            font-weight: bold;
+        }
+
+        .nav-link {
+            color: #ccc !important;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #e50914 !important;
+        }
+
+        .navbar-toggler {
+            border: 1px solid #444 !important;
+        }
+
+        /* Footer Stiləri */
+        .footer {
+            background-color: #0a0a0a;
+            border-top: 1px solid #222;
+            padding: 40px 0 20px 0;
+        }
+
+        .footer-brand {
+            color: #e50914;
+            text-decoration: none;
+        }
+
+        .footer-nav a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .footer-nav a:hover {
+            color: #e50914;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            background: #1a1a1a;
+            color: #e50914;
+            text-align: center;
+            border-radius: 50%;
+            margin-left: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #e50914;
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1a1a1a;
+            padding-top: 20px;
+            text-align: center;
+            color: #555;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-danger fw-bold fs-3" href="#">Cinefy</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Ana səhifə</a></li>
+                    <li class="nav-item"><a class="nav-link" href="seryallar.html">Seriallar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="qorxu.html">Qorxu Filmleri</a></li>
+                    <li class="nav-item"><a class="nav-link active-red" href="senedli.html">Sənədli Filmlər</a></li>
+                    <li class="nav-item"><a class="nav-link" href="komediya.html">Komediya</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container hero-section text-light">
+        <br>
+        <h1><span>Həqiqəti</span> Kəşf Edin</h1>
+        <p class="text-secondary">Dünyanın ən maraqlı hadisələri və tarixin gizli sirləri burada.</p>
+    </div>
+
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-6 col-md-3">
+                <div class="card">
+                    <img src="img/senedli/planet.png" class="card-img-top" alt="Planetimiz">
+                    <div class="card-body">
+                        <span class="category-tag text-uppercase">Təbiət</span>
+                        <h5 class="card-title">Planetimiz</h5>
+                        <p class="card-text">Vəhşi təbiətin bütün gözəlliyi bir arada.</p>
+                        <a href="https://new.parkcinema.az/az" class="btn btn-watch">İndi İzlə</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="card">
+                    <img src="img/senedli/apollo 11.png" class="card-img-top" alt="Apollo 11">
+                    <div class="card-body">
+                        <span class="category-tag text-uppercase">Kosmos</span>
+                        <h5 class="card-title">Apollo 11</h5>
+                        <p class="card-text">Ayın fəth edilməsinin real hekayəsi.</p>
+                        <a href="https://new.parkcinema.az/az" class="btn btn-watch">İndi İzlə</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="card">
+                    <img src="img/senedli/2-ci dunya muharibesi.png" class="card-img-top" alt="Tarix">
+                    <div class="card-body">
+                        <span class="category-tag text-uppercase">Tarix</span>
+                        <h5 class="card-title">II Dünya Müharibəsi</h5>
+                        <p class="card-text">Tarixin ən böyük müharibəsinə baxış.</p>
+                        <a href="https://new.parkcinema.az/az" class="btn btn-watch">İndi İzlə</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="card">
+                    <img src="img/senedli/the code.png" class="card-img-top" alt="Elm">
+                    <div class="card-body">
+                        <span class="category-tag text-uppercase">Elm</span>
+                        <h5 class="card-title">Kod (The Code)</h5>
+                        <p class="card-text">Riyaziyyatın gizli dünyasını kəşf edin.</p>
+                        <a href="https://new.parkcinema.az/az" class="btn btn-watch">İndi İzlə</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card">
+                    <img src="img/senedli/life on our planet.png" class="card-img-top" alt="Elm">
+                    <div class="card-body">
+                        <span class="category-tag text-uppercase">Təbiət</span>
+                        <h5 class="card-title">Planetimizdə Bir Həyat</h5>
+                        <p class="card-text">Dünyanın ən məşhur təbiətşünasının gözü ilə planetimizin son 90 illik dəyişimi və təbiətin qorunması üçün son şansımız.</p>
+                        <a href="https://new.parkcinema.az/az" class="btn btn-watch">İndi İzlə</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card">
+                    <img src="img/senedli/cosmos.png" class="card-img-top" alt="Elm">
+                    <div class="card-body">
+                        <span class="category-tag text-uppercase">Kosmos</span>
+                        <h5 class="card-title">Kosmos: Bir Zaman-Məkan Odisseyi</h5>
+                        <p class="card-text">Kainatın 14 milyard illik tarixini kəşf edin. Ulduzların doğuluşundan bəşəriyyətin gələcəyinə qədər uzanan unudulmaz bir kosmik səyahət.</p>
+                        <a href="https://new.parkcinema.az/az" class="btn btn-watch">İndi İzlə</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card">
+                    <img src="img/senedli/the great war.png" class="card-img-top" alt="Elm">
+                    <div class="card-body">
+                        <span class="category-tag text-uppercase">Tarix</span>
+                        <h5 class="card-title">Böyük Müharibə</h5>
+                        <p class="card-text">Dünyanı dəyişən, imperiyaları süquta uğradan və müasir tarixin axarını müəyyən edən Birinci Dünya Müharibəsinin görünməyən tərəfləri.</p>
+                        <a href="https://new.parkcinema.az/az" class="btn btn-watch">İndi İzlə</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card">
+                    <img src="img/senedli/human.png" class="card-img-top" alt="Elm">
+                    <div class="card-body">
+                        <span class="category-tag text-uppercase">Elm</span>
+                        <h5 class="card-title">İnsan: Daxili Dünyamız</h5>
+                        <p class="card-text">İnsan bədəninin gizli möcüzələrini kəşf edin. Biologiyamızın ən dərin sirləri və hər anımızı idarə edən daxili sistemlərin elmi hekayəsi.</p>
+                        <a href="https://new.parkcinema.az/az" class="btn btn-watch">İndi İzlə</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+
+    <footer class="footer mt-5">
+        <div class="container">
+            <div class="row gy-4 align-items-center">
+                <div class="col-md-4 text-center text-md-start">
+                    <a class="footer-brand fw-bold fs-3" href="#">Cinefy</a>
+                    <p class="text-muted small mt-2">Ən yeni komediya, serial və sənədli filmlərin tək ünvanı. Cinefy
+                        ilə gülüşü hiss et.</p>
+                </div>
+
+                <div class="col-md-4 text-center">
+                    <div class="footer-nav">
+                        <a href="index.html">Ana Səhifə</a>
+                        <a href="seryallar.html">Seriallar</a>
+                        <a href="qorxu.html">Qorxu</a>
+                        <a href="komediya.html">Komediya</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 text-center text-md-end">
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/elmaddin_akhmedzadeh/" title="Instagram">IG</a>
+                        <a href="https://www.facebook.com/elmaddin.akhmedzadeh" title="Facebook">FB</a>
+                        <a href="https://www.linkedin.com/in/elmaddin-ahmadzada-08a0b1100/?originalSubdomain=az"
+                            title="Linkedin">In</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom mt-4">
+                <p>© 2026 BY MERS | Documentaries Lab</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
