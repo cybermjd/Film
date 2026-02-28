@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="img/senedli/Logo.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
         /* Ana fonu qara edirik */
         body {
@@ -166,6 +167,43 @@
             color: #555;
             font-size: 0.8rem;
         }
+
+        /* Bütün kartların hündürlüyünün eyni olması üçün */
+        .card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+           
+        }
+        
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            
+        }
+
+        
+        .card-text {
+            flex-grow: 1;
+        }
+
+        .btn-watch {
+            margin-top: auto;
+            width: 100%;
+        }
+        .box1{
+            width: 65px;
+        }
+        .box2{
+            width: 48px;
+        }
+        .box3{
+            width: 39px;
+        }
+        .box4{
+            width: 57px;
+        }
     </style>
 </head>
 
@@ -203,7 +241,7 @@
                 <div class="card">
                     <img src="img/senedli/planet.png" class="card-img-top" alt="Planetimiz">
                     <div class="card-body">
-                        <span class="category-tag text-uppercase">Təbiət</span>
+                        <span class="category-tag text-uppercase box4">Təbiət</span>
                         <h5 class="card-title">Planetimiz</h5>
                         <p class="card-text">Vəhşi təbiətin bütün gözəlliyi bir arada.</p>
                         <a href="https://new.parkcinema.az/az" class="btn btn-watch">İndi İzlə</a>
@@ -215,7 +253,7 @@
                 <div class="card">
                     <img src="img/senedli/apollo 11.png" class="card-img-top" alt="Apollo 11">
                     <div class="card-body">
-                        <span class="category-tag text-uppercase">Kosmos</span>
+                        <span class="category-tag text-uppercase box1">Kosmos</span>
                         <h5 class="card-title">Apollo 11</h5>
                         <p class="card-text">Ayın fəth edilməsinin real hekayəsi.</p>
                         <a href="https://new.parkcinema.az/az" class="btn btn-watch">İndi İzlə</a>
@@ -227,7 +265,7 @@
                 <div class="card">
                     <img src="img/senedli/2-ci dunya muharibesi.png" class="card-img-top" alt="Tarix">
                     <div class="card-body">
-                        <span class="category-tag text-uppercase">Tarix</span>
+                        <span class="category-tag text-uppercase box2">Tarix</span>
                         <h5 class="card-title">II Dünya Müharibəsi</h5>
                         <p class="card-text">Tarixin ən böyük müharibəsinə baxış.</p>
                         <a href="https://new.parkcinema.az/az" class="btn btn-watch">İndi İzlə</a>
@@ -239,7 +277,7 @@
                 <div class="card">
                     <img src="img/senedli/the code.png" class="card-img-top" alt="Elm">
                     <div class="card-body">
-                        <span class="category-tag text-uppercase">Elm</span>
+                        <span class="category-tag text-uppercase box3">Elm</span>
                         <h5 class="card-title">Kod (The Code)</h5>
                         <p class="card-text">Riyaziyyatın gizli dünyasını kəşf edin.</p>
                         <a href="https://new.parkcinema.az/az" class="btn btn-watch">İndi İzlə</a>
@@ -250,9 +288,10 @@
                 <div class="card">
                     <img src="img/senedli/life on our planet.png" class="card-img-top" alt="Elm">
                     <div class="card-body">
-                        <span class="category-tag text-uppercase">Təbiət</span>
+                        <span class="category-tag text-uppercase box4">Təbiət</span>
                         <h5 class="card-title">Planetimizdə Bir Həyat</h5>
-                        <p class="card-text">Dünyanın ən məşhur təbiətşünasının gözü ilə planetimizin son 90 illik dəyişimi və təbiətin qorunması üçün son şansımız.</p>
+                        <p class="card-text">Dünyanın ən məşhur təbiətşünasının gözü ilə planetimizin son 90 illik
+                            dəyişimi və təbiətin qorunması üçün son şansımız.</p>
                         <a href="https://new.parkcinema.az/az" class="btn btn-watch">İndi İzlə</a>
                     </div>
                 </div>
@@ -261,9 +300,10 @@
                 <div class="card">
                     <img src="img/senedli/cosmos.png" class="card-img-top" alt="Elm">
                     <div class="card-body">
-                        <span class="category-tag text-uppercase">Kosmos</span>
-                        <h5 class="card-title">Kosmos: Bir Zaman-Məkan Odisseyi</h5>
-                        <p class="card-text">Kainatın 14 milyard illik tarixini kəşf edin. Ulduzların doğuluşundan bəşəriyyətin gələcəyinə qədər uzanan unudulmaz bir kosmik səyahət.</p>
+                        <span class="category-tag text-uppercase box1">Kosmos</span>
+                        <h5 class="card-title">Kosmos: Bir Zaman-Məkan 1Odisseyi</h5>
+                        <p class="card-text">Kainatın 14 milyard illik tarixini kəşf edin. Ulduzların doğuluşundan
+                            bəşəriyyətin gələcəyinə qədər uzanan unudulmaz bir kosmik səyahət.</p>
                         <a href="https://new.parkcinema.az/az" class="btn btn-watch">İndi İzlə</a>
                     </div>
                 </div>
@@ -272,9 +312,10 @@
                 <div class="card">
                     <img src="img/senedli/the great war.png" class="card-img-top" alt="Elm">
                     <div class="card-body">
-                        <span class="category-tag text-uppercase">Tarix</span>
+                        <span class="category-tag text-uppercase box2">Tarix</span>
                         <h5 class="card-title">Böyük Müharibə</h5>
-                        <p class="card-text">Dünyanı dəyişən, imperiyaları süquta uğradan və müasir tarixin axarını müəyyən edən Birinci Dünya Müharibəsinin görünməyən tərəfləri.</p>
+                        <p class="card-text">Dünyanı dəyişən, imperiyaları süquta uğradan və müasir tarixin axarını
+                            müəyyən edən Birinci Dünya Müharibəsinin görünməyən tərəfləri.</p>
                         <a href="https://new.parkcinema.az/az" class="btn btn-watch">İndi İzlə</a>
                     </div>
                 </div>
@@ -283,9 +324,10 @@
                 <div class="card">
                     <img src="img/senedli/human.png" class="card-img-top" alt="Elm">
                     <div class="card-body">
-                        <span class="category-tag text-uppercase">Elm</span>
+                        <span class="category-tag text-uppercase box3">Elm</span>
                         <h5 class="card-title">İnsan: Daxili Dünyamız</h5>
-                        <p class="card-text">İnsan bədəninin gizli möcüzələrini kəşf edin. Biologiyamızın ən dərin sirləri və hər anımızı idarə edən daxili sistemlərin elmi hekayəsi.</p>
+                        <p class="card-text">İnsan bədəninin gizli möcüzələrini kəşf edin. Biologiyamızın ən dərin
+                            sirləri və hər anımızı idarə edən daxili sistemlərin elmi hekayəsi.</p>
                         <a href="https://new.parkcinema.az/az" class="btn btn-watch">İndi İzlə</a>
                     </div>
                 </div>
@@ -314,10 +356,16 @@
 
                 <div class="col-md-4 text-center text-md-end">
                     <div class="social-links">
-                        <a href="https://www.instagram.com/elmaddin_akhmedzadeh/" title="Instagram">IG</a>
-                        <a href="https://www.facebook.com/elmaddin.akhmedzadeh" title="Facebook">FB</a>
-                        <a href="https://www.linkedin.com/in/elmaddin-ahmadzada-08a0b1100/?originalSubdomain=az"
-                            title="Linkedin">In</a>
+                        <a href="https://www.instagram.com/elmaddin_akhmedzadeh/" title="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/elmaddin.akhmedzadeh" title="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://wa.me/99450840000" target="_blank">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                            
                     </div>
                 </div>
             </div>
